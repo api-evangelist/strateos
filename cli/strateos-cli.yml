@@ -1,0 +1,72 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/strateos/transcriptic (transcriptic/cli.py console_scripts entry point)
+name: transcriptic
+binary: transcriptic
+description: >-
+  The Transcriptic (TxPy) command-line interface, bundled with the `transcriptic`
+  Python package, for interacting with the Strateos robotic cloud lab web API:
+  authenticating, submitting Autoprotocol runs, managing projects and packages,
+  browsing inventory, and downloading datasets.
+package: transcriptic
+install:
+- method: pip
+  command: pip install transcriptic
+- method: pip-full
+  command: pip install transcriptic[jupyter,analysis]
+auth:
+  command: transcriptic login
+  notes: >-
+    Interactive login capturing email/token (API key), storing an ~/.transcriptic
+    config with api_root (default https://secure.strateos.com), organization, and
+    credentials. Supports API-key, HTTP-Signature, and bearer-token auth.
+command_groups:
+- group: session
+  commands:
+  - login
+  - select-org
+- group: runs
+  commands:
+  - submit
+  - launch
+  - analyze
+  - runs
+  - preview
+  - summarize
+- group: projects
+  commands:
+  - projects
+  - create-project
+  - delete-project
+- group: packages-and-protocols
+  commands:
+  - packages
+  - create-package
+  - delete-package
+  - build-release
+  - upload-release
+  - protocols
+  - generate-protocol
+  - init
+  - format
+  - compile
+  - exec
+- group: data-and-inventory
+  commands:
+  - upload-dataset
+  - resources
+  - inventory
+  - payments
+key_flows:
+- name: Submit an Autoprotocol run
+  steps:
+  - transcriptic login
+  - transcriptic submit protocol.json --project <project> --title "My run" --test
+- name: Analyze a run before submitting
+  steps:
+  - transcriptic analyze protocol.json --test
+- name: Publish a protocol package release
+  steps:
+  - transcriptic init
+  - transcriptic build-release
+  - transcriptic upload-release

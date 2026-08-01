@@ -1,0 +1,47 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://developers.strateos.com/docs/developer-settings ;
+  https://github.com/strateos/transcriptic (transcriptic/auth.py)
+docs: https://developers.strateos.com/docs/developer-settings
+summary:
+  types:
+  - apiKey
+  - httpSignature
+  - http
+  api_key_in:
+  - header
+  notes: >-
+    Strateos issues a per-user API Key from the Developer Settings tab of the user
+    administration page after developer access is requested. The official TxPy client
+    supports three request-auth mechanisms against the api_root (default
+    https://secure.strateos.com).
+schemes:
+- name: apiKey
+  type: apiKey
+  in: header
+  description: >-
+    Per-user email + API token retrieved from Developer Settings, sent to authenticate
+    API requests (historically X-User-Email / X-User-Token headers).
+  source: https://developers.strateos.com/docs/developer-settings
+- name: httpSignature
+  type: httpSignature
+  scheme: signature
+  description: >-
+    HTTP Message Signatures (draft-cavage httpsig). TxPy's StrateosSign signs requests
+    over the (request-target), Date, and Host headers; write requests additionally sign
+    Digest (SHA-256 of the body) and Content-Length, using an RSA secret.
+  signed_headers:
+  - (request-target)
+  - Date
+  - Host
+  - Digest
+  - Content-Length
+  source: https://github.com/strateos/transcriptic
+- name: bearer
+  type: http
+  scheme: bearer
+  description: >-
+    Bearer token placed in the Authorization header (TxPy StrateosBearerAuth) for
+    session/JWT-based access.
+  source: https://github.com/strateos/transcriptic

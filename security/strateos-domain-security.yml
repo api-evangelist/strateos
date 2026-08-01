@@ -1,0 +1,17 @@
+generated: '2026-07-21'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: strateos.com
+  https: false
+- host: developers.strateos.com
+  https: false
+- host: secure.strateos.com
+  https: false
+domains:
+- domain: strateos.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none

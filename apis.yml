@@ -1,7 +1,27 @@
 aid: strateos
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/strateos.png
 name: Strateos
-description: Strateos is a company surfaced as a portfolio company of dcvc, lux-capital and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Strateos operates a robotic cloud laboratory for the life sciences, delivering
+  Cloud Lab Automation-as-a-Service so scientists can design, run, and analyze
+  wet-lab experiments remotely and programmatically. Originally founded as
+  Transcriptic, Strateos couples high-throughput robotic lab automation with the
+  Autoprotocol standard and a JSON:API-based web API, letting researchers submit
+  protocols, launch runs, manage projects, inventory, and datasets, and pull
+  results into downstream ML and data-engineering pipelines. It is backed by DCVC
+  and Lux Capital.
 url: https://raw.githubusercontent.com/api-evangelist/strateos/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,15 +32,75 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Life Sciences
+- Laboratory Automation
+- Robotics
+- Cloud Lab
+- Drug Discovery
+- Biotechnology
+- Autoprotocol
+- JSON:API
+- Research
+apis:
+- name: Strateos Web API
+  description: >-
+    The Strateos / Transcriptic web API is a JSON:API-based interface for managing
+    organizations, projects, runs, datasets, inventory, protocols, and packages on
+    the robotic cloud lab. It is consumed through the official Transcriptic (TxPy)
+    Python client and CLI, or directly over HTTPS with API-key, HTTP-Signature, or
+    bearer-token authentication.
+  humanURL: https://developers.strateos.com/reference
+  baseURL: https://secure.strateos.com
+  tags:
+  - Laboratory Automation
+  - JSON:API
+  - Life Sciences
+  properties:
+  - type: Documentation
+    url: https://developers.strateos.com/reference
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/strateos-domain-security.yml
 - type: Website
   url: https://strateos.com
+- type: DeveloperPortal
+  url: https://developers.strateos.com/reference
+- type: Documentation
+  url: https://developers.strateos.com/reference
+- type: APIReference
+  url: https://developers.strateos.com/reference
+- type: GettingStarted
+  url: https://developers.strateos.com/reference
+- type: GitHubOrganization
+  url: https://github.com/strateos
+- type: Login
+  url: https://secure.strateos.com
+- type: Packages
+  url: packages/strateos-packages.yml
+- type: SDKs
+  url: packages/strateos-packages.yml
+- type: CLI
+  url: cli/strateos-cli.yml
+- type: Authentication
+  url: authentication/strateos-authentication.yml
+- type: Conventions
+  url: conventions/strateos-conventions.yml
+- type: Conformance
+  url: conformance/strateos-conformance.yml
+- type: DataModel
+  url: data-model/strateos-data-model.yml
+- type: LLMsTxt
+  url: llms/strateos-llms.txt
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v1

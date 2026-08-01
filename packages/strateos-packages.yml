@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: searched
+source: https://pypi.org/project/transcriptic/ ; https://github.com/strateos/transcriptic
+packages:
+- language: python
+  registry: pypi
+  name: transcriptic
+  url: https://pypi.org/project/transcriptic/
+  install: pip install transcriptic
+  version: 9.6.3
+  official: true
+  description: >-
+    Transcriptic Python Library (TxPy) - the official Strateos client and CLI for
+    managing organizations, projects, runs, datasets, inventory, and packages on the
+    robotic cloud lab. Provides a core API client, a Jupyter-centric interface, and
+    analysis wrappers. Installs the `transcriptic` command-line tool.
+  source_code: https://github.com/strateos/transcriptic
+  extras:
+  - jupyter
+  - analysis
+- language: python
+  registry: pypi
+  name: autoprotocol
+  url: https://pypi.org/project/autoprotocol/
+  install: pip install autoprotocol
+  version: 10.3.0
+  official: true
+  description: >-
+    Python library for generating Autoprotocol - the open standard for specifying
+    life-science experiments authored by Transcriptic/Strateos that the Strateos
+    cloud lab executes. Used to build protocol JSON submitted through the web API.
+  source_code: https://github.com/autoprotocol/autoprotocol-python

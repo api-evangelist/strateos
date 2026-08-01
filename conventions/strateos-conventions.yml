@@ -1,0 +1,50 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://developers.strateos.com/reference ;
+  https://github.com/strateos (jsonapi-resources, jsonapi-swagger, jsonapi-authorization) ;
+  https://github.com/strateos/transcriptic (transcriptic/auth.py, config.py)
+api_root: https://secure.strateos.com
+authentication:
+  style: api-key + http-signature + bearer
+  detail: authentication/strateos-authentication.yml
+media_type:
+  format: json:api
+  content_type: application/vnd.api+json
+  notes: >-
+    The Strateos web API is built on the JSON:API specification (the org maintains
+    jsonapi-resources, jsonapi-swagger, and jsonapi-authorization Rails libraries),
+    so resources, relationships, includes, and sparse fieldsets follow JSON:API.
+request_signing:
+  supported: true
+  scheme: http-message-signatures (draft-cavage httpsig)
+  signed_headers:
+  - (request-target)
+  - Date
+  - Host
+  - Digest
+  - Content-Length
+  digest: SHA-256 of the request body (Digest header) on write requests
+url_structure:
+  organization_scoped: true
+  pattern: "{api_root}/{organization_id}/{path}"
+  notes: Most resource paths are nested under the caller's organization id.
+resources:
+- organizations
+- projects
+- runs
+- datasets
+- containers (inventory)
+- protocols
+- packages
+- resources
+- payments
+error_envelope:
+  format: json:api-errors
+  notes: >-
+    JSON:API `errors[]` array with status/title/detail members (no RFC 9457
+    problem+json observed).
+cross_links:
+  authentication: authentication/strateos-authentication.yml
+  conformance: conformance/strateos-conformance.yml
+  data_model: data-model/strateos-data-model.yml

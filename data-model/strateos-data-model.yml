@@ -1,0 +1,60 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  https://github.com/strateos/transcriptic (transcriptic Run/Project/Dataset/Container
+  object model) ; https://developers.strateos.com/reference
+notes: >-
+  Derived from the Transcriptic (TxPy) client object model and JSON:API resource set,
+  not from a published OpenAPI spec. Entities and relationships reflect the objects the
+  official client exposes (Organization, Project, Run, Dataset, Container/inventory,
+  Protocol, Package).
+entities:
+- name: Organization
+  description: Top-level tenant; most resources are scoped under an organization id.
+- name: Project
+  description: A container for runs; belongs to an organization.
+- name: Run
+  description: An executed (or queued) Autoprotocol experiment on the cloud lab.
+- name: Dataset
+  description: Result data produced by a run's instructions.
+- name: Container
+  description: Physical inventory item (plate, tube) tracked in the lab.
+- name: Aliquot
+  description: A well/sample within a container.
+- name: Protocol
+  description: An Autoprotocol program that can be launched as a run.
+- name: Package
+  description: A versioned bundle of published protocols.
+- name: Resource
+  description: A catalog reagent/material usable in protocols.
+- name: Payment
+  description: Payment/billing method attached to an organization.
+relationships:
+- from: Project
+  to: Organization
+  type: belongs_to
+  via: organization_id
+- from: Run
+  to: Project
+  type: belongs_to
+  via: project_id
+- from: Run
+  to: Dataset
+  type: has_many
+  via: run_id
+- from: Container
+  to: Organization
+  type: belongs_to
+  via: organization_id
+- from: Aliquot
+  to: Container
+  type: belongs_to
+  via: container_id
+- from: Package
+  to: Organization
+  type: belongs_to
+  via: organization_id
+- from: Protocol
+  to: Package
+  type: belongs_to
+  via: package_id

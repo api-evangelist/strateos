@@ -1,0 +1,35 @@
+# Strateos
+
+> Strateos operates a robotic cloud laboratory for the life sciences, delivering Cloud Lab Automation-as-a-Service. Scientists design, run, and analyze wet-lab experiments remotely and programmatically via the Autoprotocol standard and a JSON:API-based web API. Originally founded as Transcriptic; backed by DCVC and Lux Capital.
+
+## APIs
+
+- [Strateos Web API reference](https://developers.strateos.com/reference): JSON:API for organizations, projects, runs, datasets, inventory, protocols, and packages. Base URL https://secure.strateos.com.
+- [Developer Settings / API keys](https://developers.strateos.com/docs/developer-settings): request developer access and retrieve your API key.
+- [Available Devices](https://developers.strateos.com/docs/devices): lab instruments available to runs.
+
+## SDKs & CLI
+
+- [transcriptic (PyPI)](https://pypi.org/project/transcriptic/): official Transcriptic (TxPy) Python client and CLI.
+- [transcriptic (GitHub)](https://github.com/strateos/transcriptic): source for the client and `transcriptic` CLI.
+- [autoprotocol (PyPI)](https://pypi.org/project/autoprotocol/): Python library for generating Autoprotocol experiment specs.
+
+## Authentication
+
+- API key (email + token) from Developer Settings; HTTP Message Signatures (httpsig) signing (request-target)/Date/Host/Digest; and bearer tokens.
+
+## Artifacts
+
+- Packages: packages/strateos-packages.yml
+- CLI: cli/strateos-cli.yml
+- Authentication: authentication/strateos-authentication.yml
+- Conventions: conventions/strateos-conventions.yml
+- Conformance: conformance/strateos-conformance.yml
+- Data model: data-model/strateos-data-model.yml
+- Domain security: security/strateos-domain-security.yml
+
+## Company
+
+- [Strateos](https://strateos.com): robotic controlled life-sciences lab.
+- [Technology](https://strateos.com/technology/): the robotic cloud lab.
+- [GitHub org](https://github.com/strateos): open-source repositories.
